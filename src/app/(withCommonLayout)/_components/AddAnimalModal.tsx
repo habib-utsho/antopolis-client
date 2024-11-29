@@ -1,17 +1,13 @@
 "use client";
 import MyInp from "@/components/ui/Form/MyInp";
-import { useGetAllCategory } from "@/hooks/category";
 import { createAnimal } from "@/services/animal";
 import { TCreateAnimal } from "@/types/animal";
 import { TCategory } from "@/types/category";
 import { Button, Form, message, Modal } from "antd";
 import React, { useState } from "react";
 
-const AddAnimalModal = () => {
+const AddAnimalModal = ({ categories }: { categories: TCategory[] }) => {
   const [visible, setVisible] = useState(false);
-  const { data: categories } = useGetAllCategory([
-    { name: "limit", value: 50000 },
-  ]);
   const [isAddAnimalLoading, setIsAddAnimalLoading] = useState(false);
 
   const handleAddCategory = async (values: TCreateAnimal) => {
@@ -36,7 +32,7 @@ const AddAnimalModal = () => {
         message.error(res?.message || "Failed to add animal");
         setIsAddAnimalLoading(false);
       }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       message.error(error?.message || "Failed to add animal");
       setIsAddAnimalLoading(false);
@@ -72,7 +68,7 @@ const AddAnimalModal = () => {
             label="Category"
             placeholder="Select a category"
             rules={[{ required: true, message: "Category is required" }]}
-            options={categories?.data?.map((category: TCategory) => ({
+            options={categories?.map((category: TCategory) => ({
               label: category.name,
               value: category._id,
             }))}

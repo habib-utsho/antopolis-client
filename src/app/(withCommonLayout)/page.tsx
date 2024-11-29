@@ -8,6 +8,8 @@ import AnimalsErr from "./_components/AnimalsErr";
 import dynamic from "next/dynamic";
 import CategoryErr from "./_components/CategoryErr";
 import CategoryLoading from "./_components/CategoryLoading";
+import { getAllCategories } from "@/services/category";
+import { TCategory } from "@/types/category";
 
 const DynamicFilteringSection = dynamic(
   () => import("./_components/Categories"),
@@ -25,6 +27,8 @@ const page = async ({
   if (searchParams) {
     searchParams.category = searchParams.category || "All";
   }
+  const categoriesT = await getAllCategories([{ name: "limit", value: 500 }]);
+  const categories = categoriesT.data as TCategory[];
   return (
     <div className="py-[65px] min-h-screen !bg-black !text-white">
       <Container>
@@ -38,7 +42,7 @@ const page = async ({
           </div>
 
           <div className="flex gap-2 flex-1 justify-end">
-            <AddAnimalModal />
+            <AddAnimalModal categories={categories} />
             <AddCategoryModal />
           </div>
         </div>
