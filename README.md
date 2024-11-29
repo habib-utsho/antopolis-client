@@ -1,15 +1,15 @@
-# We5iv
+# antopolis
 
-Welcome to the We5iv! This application is built using Next.js, Tailwind, AntD and TypeScript to seamless shopping experience.
+Welcome to the antopolis! This application is built using Next.js, Tailwind, AntD and TypeScript to seamless shopping experience.
 
 **Getting Started**
 To get started with the We5ive locally, follow these steps:
 
 ## Clone this repository to your local machine:
 
-git clone [https://github.com/habib-utsho/job-task/tree/main/bakbakum](https://github.com/habib-utsho/job-task/tree/main/bakbakum)
+git clone [https://github.com/habib-utsho/antopolis-client](https://github.com/habib-utsho/antopolis-client)
 
-**Navigate into the project directory:** cd bakbakum
+**Navigate into the project directory:** cd antopolis
 **Install dependencies:** yarn install
 
 **Set up your environment variables:**
@@ -35,5 +35,5 @@ Running the Server by- **yarn dev**
 
 Local URL: **[Link](http://localhost:3000)**
 
-Live URL: **[Link](https://we5ive-b2gsoft.vercel.app/)**
+Live URL: **[Link](https://github.com/habib-utsho/antopolis-client/)**
 
