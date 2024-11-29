@@ -34,7 +34,7 @@ const Animals = async ({
                   alt={animal.name}
                   width={100}
                   height={100}
-                  className="!h-[150px] !w-full"
+                  className="!h-[100px] !w-[100px]"
                 />
                 <h2 className="text-slate-100 font-light">{animal.name}</h2>
               </div>

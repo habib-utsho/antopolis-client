@@ -9,6 +9,7 @@ import React, { useState } from "react";
 const AddAnimalModal = ({ categories }: { categories: TCategory[] }) => {
   const [visible, setVisible] = useState(false);
   const [isAddAnimalLoading, setIsAddAnimalLoading] = useState(false);
+  const [form] = Form.useForm();
 
   const handleAddCategory = async (values: TCreateAnimal) => {
     setIsAddAnimalLoading(true);
@@ -28,6 +29,7 @@ const AddAnimalModal = ({ categories }: { categories: TCategory[] }) => {
         message.success(res?.message || "Animal added successfully");
         setVisible(false);
         setIsAddAnimalLoading(false);
+        form.resetFields();
       } else {
         message.error(res?.message || "Failed to add animal");
         setIsAddAnimalLoading(false);
@@ -54,7 +56,7 @@ const AddAnimalModal = ({ categories }: { categories: TCategory[] }) => {
         title="Add Animal"
         footer={null}
       >
-        <Form layout="vertical" onFinish={handleAddCategory}>
+        <Form layout="vertical" onFinish={handleAddCategory} form={form}>
           <MyInp
             type="text"
             name={"name"}

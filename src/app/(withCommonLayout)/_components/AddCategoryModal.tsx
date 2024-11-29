@@ -7,6 +7,7 @@ import React, { useState } from "react";
 
 const AddCategoryModal = () => {
   const [visible, setVisible] = useState(false);
+  const [form] = Form.useForm();
   const [isAddCategoryLoading, setIsAddCategoryLoading] = useState(false);
 
   const handleAddCategory = async (values: TCreateCategory) => {
@@ -17,6 +18,7 @@ const AddCategoryModal = () => {
         message.success(res?.message || "Category added successfully");
         setVisible(false);
         setIsAddCategoryLoading(false);
+        form.resetFields();
       } else {
         message.error(res?.message || "Failed to add category");
         setIsAddCategoryLoading(false);
@@ -43,7 +45,7 @@ const AddCategoryModal = () => {
         title="Add Category"
         footer={null}
       >
-        <Form layout="vertical" onFinish={handleAddCategory}>
+        <Form layout="vertical" onFinish={handleAddCategory} form={form}>
           <MyInp
             type="text"
             name={"name"}
