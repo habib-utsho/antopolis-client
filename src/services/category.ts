@@ -9,6 +9,7 @@ export const getSingleCategory = async (id: string) => {
   const fetchOptions = {
     next: {
       tags: ["category"],
+      revalidate: 60,
     },
   };
 
@@ -58,6 +59,7 @@ export const getAllCategories = async (query?: TFilterQuery[]) => {
   const fetchOptions = {
     next: {
       tags: ["category"],
+      revalidate: 60,
     },
   };
 
