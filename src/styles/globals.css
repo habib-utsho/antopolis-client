@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Scrollbar */
+/* Define scrollbar styles using CSS variables */
+:root {
+  --sb-track-color: #b3d7f8;
+  --sb-thumb-color: #8f71e1;
+  --sb-size: 7px;
+}
+
+/* Apply scrollbar width to all scrollable elements */
+*::-webkit-scrollbar {
+  width: var(--sb-size);
+  height: var(--sb-size); /* For horizontal scrollbars */
+}
+
+/* Apply track color to all scrollable elements */
+*::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+/* Apply thumb color and styles to all scrollable elements */
+*::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+}
+
+/* Fallback for browsers that don't support the ::-webkit-scrollbar pseudo-element */
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    scrollbar-width: thin; /* Reduces scrollbar width in browsers that support it */
+  }
+}
+
+/* Swiper js pagination */
+/* Swiper carousel dots */
+.swiper-pagination-bullet {
+  @apply bg-[#E0DCF8] !rounded-[8px] !h-[8px] !w-[16px];
+}
+.swiper-pagination-bullet-active {
+  @apply !bg-primary !rounded-[8px] !h-[8px] !w-[32px];
+}
